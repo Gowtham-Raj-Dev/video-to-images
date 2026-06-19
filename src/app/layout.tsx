@@ -30,9 +30,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
+  metadataBase: new URL("https://gowtham-raj-dev.github.io/gemini-watermark-remove"),
 };
 
 export default function RootLayout({
