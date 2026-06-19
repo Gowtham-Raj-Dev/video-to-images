@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gemini Watermark Remover — Free Online Tool</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-soft: #f6f8fc;
+    --bg-soft2: #eef2fb;
+    --card: #ffffff;
+    --border: #e6e8ef;
+    --text: #1a1c23;
+    --muted: #5b6472;
+    --brand: #4285f4;      /* Gemini blue */
+    --brand-dark: #1a73e8;
+    --brand-2: #9b72cb;    /* Gemini purple */
+    --brand-3: #d96570;    /* Gemini pink/red */
+    --accent: #1e8e3e;     /* green tick */
+    --radius: 16px;
+    --max: 1180px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  .gradient-text {
+    background: linear-gradient(120deg, var(--brand), var(--brand-2), var(--brand-3));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* ---------- Nav ---------- */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(14px);
+    background: rgba(255,255,255,0.82);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav { display: flex; align-items: center; gap: 26px; height: 64px; }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15.5px; }
+  .logo .mark {
+    width: 28px; height: 28px; border-radius: 8px;
+    background: conic-gradient(from 200deg, var(--brand), var(--brand-2), var(--brand-3), var(--brand));
+    display: grid; place-items: center; color: #fff; font-size: 14px;
+  }
+  .nav-links { display: flex; gap: 20px; margin-left: 10px; font-size: 14px; color: var(--muted); }
+  .nav-links a:hover { color: var(--text); }
+  .nav-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 7px;
+    border: 1px solid var(--border); padding: 7px 13px; border-radius: 999px;
+    font-size: 13px; color: var(--muted); background: var(--bg);
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; justify-content: center;
+    padding: 11px 20px; border-radius: 11px; font-weight: 600; font-size: 14px;
+    cursor: pointer; border: 1px solid transparent; transition: .18s ease; white-space: nowrap;
+  }
+  .btn-primary { background: var(--brand-dark); color: #fff; box-shadow: 0 6px 18px rgba(26,115,232,.28); }
+  .btn-primary:hover { background: #1763c9; transform: translateY(-1px); box-shadow: 0 10px 24px rgba(26,115,232,.36); }
+  .btn-ghost { background: var(--bg); border-color: var(--border); color: var(--text); }
+  .btn-ghost:hover { background: var(--bg-soft); }
+
+  /* ---------- Hero ---------- */
+  .hero { position: relative; padding: 64px 0 36px; text-align: center; overflow: hidden; }
+  .hero::before {
+    content: ""; position: absolute; inset: -200px 0 auto 0; height: 480px;
+    background: radial-gradient(60% 60% at 50% 0%, rgba(66,133,244,.12), transparent 70%);
+    pointer-events: none;
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 13px;
+    color: var(--muted); border: 1px solid var(--border); background: var(--bg-soft);
+    padding: 6px 14px; border-radius: 999px; margin-bottom: 22px;
+  }
+  .badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+  h1 { font-size: clamp(34px, 6vw, 58px); line-height: 1.08; letter-spacing: -1.5px; font-weight: 800; }
+  .sub { max-width: 660px; margin: 20px auto 0; color: var(--muted); font-size: 18px; }
+  .hero-cta { display: flex; gap: 14px; justify-content: center; margin-top: 30px; flex-wrap: wrap; }
+  .stats { display: flex; gap: 28px; justify-content: center; margin-top: 26px; flex-wrap: wrap; color: var(--muted); font-size: 14px; }
+  .stats b { color: var(--text); }
+  .stats span { display: inline-flex; align-items: center; gap: 7px; }
+  .check { color: var(--accent); }
+
+  /* ---------- Tool / Tabs ---------- */
+  .tool { margin: 44px auto 0; max-width: 940px; }
+  .tabs { display: inline-flex; gap: 6px; padding: 5px; background: var(--bg-soft); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 18px; }
+  .tab {
+    padding: 9px 22px; border-radius: 8px; font-size: 14px; font-weight: 600;
+    color: var(--muted); cursor: pointer; border: none; background: transparent; transition: .15s;
+  }
+  .tab.active { background: var(--brand-dark); color: #fff; }
+  .tab .beta { font-size: 10px; opacity: .85; margin-left: 5px; }
+  .dropzone {
+    border: 2px dashed #cdd5e6; border-radius: var(--radius);
+    background: linear-gradient(180deg, #fff, var(--bg-soft));
+    padding: 46px 24px; text-align: center; transition: .2s; cursor: pointer;
+  }
+  .dropzone:hover { border-color: var(--brand); background: var(--bg-soft2); }
+  .dropzone .icon {
+    width: 56px; height: 56px; margin: 0 auto 16px; border-radius: 14px;
+    background: rgba(66,133,244,.12); display: grid; place-items: center; font-size: 26px;
+  }
+  .dropzone h3 { font-size: 19px; }
+  .dropzone p { color: var(--muted); font-size: 14px; margin-top: 6px; }
+  .formats { display: flex; gap: 8px; justify-content: center; margin-top: 16px; flex-wrap: wrap; }
+  .fmt { font-size: 12px; color: var(--muted); border: 1px solid var(--border); padding: 4px 10px; border-radius: 7px; background: var(--bg-soft); }
+
+  /* before/after compare */
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
+  .shot { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); aspect-ratio: 4/3; }
+  .shot .label {
+    position: absolute; top: 12px; left: 12px; font-size: 12px; font-weight: 600; color:#fff;
+    padding: 5px 11px; border-radius: 7px; backdrop-filter: blur(6px); background: rgba(0,0,0,.42);
+  }
+  .shot.before { background: linear-gradient(135deg, #dbe4f5, #cdd9f0); }
+  .shot.after { background: linear-gradient(135deg, #d6efe0, #d2e8f7); }
+  .watermark { position: absolute; bottom: 14px; right: 14px; font-size: 13px; font-weight: 700; color: rgba(30,40,60,.55); display: flex; align-items: center; gap: 5px; }
+  .shot .photo { position:absolute; inset:0; display:grid; place-items:center; color: var(--muted); font-size: 13px; }
+
+  /* ---------- Sections ---------- */
+  section { padding: 78px 0; }
+  .eyebrow { color: var(--brand-dark); font-weight: 700; font-size: 13px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .sec-head { text-align: center; max-width: 720px; margin: 0 auto 48px; }
+  .sec-head h2 { font-size: clamp(28px, 4vw, 42px); letter-spacing: -1px; margin-top: 12px; font-weight: 800; }
+  .sec-head p { color: var(--muted); margin-top: 14px; font-size: 17px; }
+
+  /* how it works */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .step { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; box-shadow: 0 1px 3px rgba(16,24,40,.04); }
+  .step .num {
+    width: 38px; height: 38px; border-radius: 10px; font-weight: 800;
+    background: rgba(66,133,244,.12); color: var(--brand-dark); display: grid; place-items: center; margin-bottom: 16px;
+  }
+  .step h3 { font-size: 18px; }
+  .step p { color: var(--muted); font-size: 14px; margin-top: 8px; }
+
+  /* toolkit grid */
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; transition: .2s; box-shadow: 0 1px 3px rgba(16,24,40,.04); }
+  .card:hover { border-color: var(--brand); transform: translateY(-3px); box-shadow: 0 12px 28px rgba(16,24,40,.08); }
+  .card .emoji { width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; font-size: 22px; background: var(--bg-soft2); margin-bottom: 16px; }
+  .card h3 { font-size: 17px; }
+  .card p { color: var(--muted); font-size: 14px; margin-top: 8px; }
+
+  /* workflows */
+  .flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .flow-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; box-shadow: 0 1px 3px rgba(16,24,40,.04); }
+  .flow-card .tag { font-size: 12px; color: var(--brand-dark); font-weight: 700; }
+  .flow-card h3 { font-size: 18px; margin-top: 10px; }
+  .flow-card p { color: var(--muted); font-size: 14px; margin-top: 8px; }
+  .flow-card a { display: inline-flex; gap: 6px; margin-top: 14px; color: var(--brand-dark); font-size: 14px; font-weight: 600; }
+
+  /* FAQ */
+  .faq { max-width: 780px; margin: 0 auto; }
+  details { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 22px; margin-bottom: 12px; cursor: pointer; }
+  details[open] { border-color: var(--brand); }
+  summary { font-weight: 600; font-size: 16px; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; font-size: 22px; color: var(--muted); font-weight: 400; }
+  details[open] summary::after { content: "−"; }
+  details p { color: var(--muted); font-size: 14.5px; margin-top: 12px; }
+
+  /* CTA */
+  .cta-band {
+    background: linear-gradient(120deg, #1a73e8, #4285f4 55%, #9b72cb);
+    border-radius: 24px; padding: 60px 32px; text-align: center; color: #fff;
+  }
+  .cta-band h2 { font-size: clamp(28px, 4vw, 40px); letter-spacing: -1px; font-weight: 800; }
+  .cta-band p { color: rgba(255,255,255,.9); margin-top: 14px; font-size: 17px; }
+  .cta-band .hero-cta { margin-top: 28px; }
+  .cta-band .btn-primary { background: #fff; color: var(--brand-dark); box-shadow: none; }
+  .cta-band .btn-primary:hover { background: #f0f3fb; }
+  .cta-band .btn-ghost { background: transparent; border-color: rgba(255,255,255,.5); color: #fff; }
+  .cta-band .btn-ghost:hover { background: rgba(255,255,255,.12); }
+
+  /* footer */
+  footer { border-top: 1px solid var(--border); padding: 50px 0 40px; color: var(--muted); background: var(--bg-soft); }
+  .foot { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items: center; }
+  .foot-links { display: flex; gap: 22px; font-size: 14px; }
+  .foot-links a:hover { color: var(--text); }
+  .lang { background: var(--bg); border: 1px solid var(--border); color: var(--muted); padding: 8px 12px; border-radius: 9px; font-size: 13px; }
+
+  @media (max-width: 880px) {
+    .nav-links, .nav-right .pill { display: none; }
+    .steps, .grid, .flow, .compare { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header>
+  <div class="wrap nav">
+    <div class="logo"><span class="mark">✦</span> GeminiWatermarkRemover<span style="color:var(--muted);font-weight:500">.io</span></div>
+    <nav class="nav-links">
+      <a href="#tool">Tools</a>
+      <a href="#workflows">Install</a>
+      <a href="#workflows">Chrome Extension</a>
+      <a href="#workflows">Userscript</a>
+      <a href="#workflows">CLI</a>
+      <a href="#toolkit">Skills</a>
+      <a href="#features">More Tools</a>
+    </nav>
+    <div class="nav-right">
+      <a class="pill" href="#">★ 4.4k Stars</a>
+      <a class="btn btn-primary" href="#workflows">Install Chrome Extension</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="badge"><span class="dot"></span> 100% local · No upload · No sign-up</div>
+    <h1>Gemini <span class="gradient-text">Watermark Remover</span></h1>
+    <p class="sub">Free online Gemini watermark cleaner for images, logos, and star overlays.
+       No upload, no sign-up — 100% local, private processing.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#tool">Remove watermarks now</a>
+      <a class="btn btn-ghost" href="#workflows">Install Chrome Extension</a>
+    </div>
+    <div class="stats">
+      <span><span class="check">✓</span> Runs in your browser — no upload</span>
+      <span><span class="check">✓</span> ~1s per 1MP image</span>
+      <span><span class="check">✓</span> Pixel-exact restoration</span>
+    </div>
+
+    <!-- TOOL -->
+    <div class="tool" id="tool">
+      <div class="tabs">
+        <button class="tab active" onclick="switchTab(this,'img')">Images</button>
+        <button class="tab" onclick="switchTab(this,'vid')">Videos<span class="beta">BETA</span></button>
+      </div>
+      <div class="dropzone" onclick="document.getElementById('file').click()">
+        <div class="icon">⬆️</div>
+        <h3>Drag &amp; drop images here</h3>
+        <p>or click to browse — processing happens 100% on your device</p>
+        <div class="formats">
+          <span class="fmt">JPG</span><span class="fmt">PNG</span><span class="fmt">WebP</span>
+          <span class="fmt">Bulk / ZIP</span>
+        </div>
+        <input id="file" type="file" hidden multiple accept="image/*" />
+      </div>
+
+      <div class="compare">
+        <div class="shot before">
+          <span class="label">Before</span>
+          <div class="photo">Original image</div>
+          <span class="watermark">✦ Gemini</span>
+        </div>
+        <div class="shot after">
+          <span class="label">After</span>
+          <div class="photo">Watermark removed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="wrap sec-head">
+    <span class="eyebrow">Reverse alpha blending</span>
+    <h2>Pixel-accurate restoration</h2>
+    <p>No AI repainting or guesswork. We mathematically reverse the watermark's alpha blend to recover
+       the exact original pixels underneath — lossless and clean.</p>
+    <div style="margin-top:24px"><a class="btn btn-primary" href="#tool">Try it free</a></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" style="background:var(--bg-soft)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">How it works</span>
+      <h2>How to remove a Gemini watermark online</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>Upload photos</h3><p>Add JPG, PNG or WebP files — single or in bulk. Nothing leaves your device.</p></div>
+      <div class="step"><div class="num">2</div><h3>Auto-remove watermark</h3><p>In-browser processing detects and strips the Gemini logo &amp; star overlay automatically.</p></div>
+      <div class="step"><div class="num">3</div><h3>Download clean images</h3><p>Save individual PNGs or grab everything at once as a ZIP archive.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLKIT -->
+<section id="toolkit">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Complete toolkit</span>
+      <h2>Complete Google Gemini watermark removal toolkit</h2>
+    </div>
+    <div class="grid">
+      <div class="card"><div class="emoji">🎯</div><h3>Reverse alpha blending</h3><p>Recovers exact original pixels — no AI repainting.</p></div>
+      <div class="card"><div class="emoji">✨</div><h3>Multiple variants</h3><p>Logo, star overlay and Nano Banana watermark support.</p></div>
+      <div class="card"><div class="emoji">⚡</div><h3>Bulk parallel processing</h3><p>Clean dozens of images at once with worker threads.</p></div>
+      <div class="card"><div class="emoji">🔒</div><h3>Browser-local</h3><p>Zero uploads. Your images never touch a server.</p></div>
+      <div class="card"><div class="emoji">🖼️</div><h3>Multi-format</h3><p>JPG, PNG, WebP in — PNG or ZIP out.</p></div>
+      <div class="card"><div class="emoji">🧩</div><h3>Chrome extension</h3><p>Remove watermarks right on Gemini pages via userscript.</p></div>
+      <div class="card"><div class="emoji">💻</div><h3>CLI &amp; SDK</h3><p>Automate removal in your own pipelines for developers.</p></div>
+      <div class="card"><div class="emoji">🌐</div><h3>Cross-platform</h3><p>Works on any modern browser, any OS.</p></div>
+      <div class="card"><div class="emoji">🆓</div><h3>Free &amp; open source</h3><p>No paywall, no account, ever.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKFLOWS -->
+<section id="workflows" style="background:var(--bg-soft)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Alternative workflows</span>
+      <h2>Pick the tool that fits you</h2>
+    </div>
+    <div class="flow">
+      <div class="flow-card"><span class="tag">USERSCRIPT</span><h3>On Gemini pages</h3><p>Install the userscript to strip watermarks inline as you generate images.</p><a href="#">Install userscript →</a></div>
+      <div class="flow-card"><span class="tag">VIDEO · BETA</span><h3>Video watermark remover</h3><p>Remove the moving Gemini/Veo overlay frame-by-frame, in the browser.</p><a href="#">Open video tool →</a></div>
+      <div class="flow-card"><span class="tag">CLI</span><h3>Command line tool</h3><p>Batch-process folders from your terminal — perfect for automation.</p><a href="#">View CLI docs →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Frequently asked questions</h2></div>
+    <div class="faq">
+      <details open><summary>Is it really free?</summary><p>Yes — completely free and open source. No account, no subscription, no hidden limits.</p></details>
+      <details><summary>Are my images uploaded anywhere?</summary><p>No. All processing runs locally in your browser. Your images never leave your device.</p></details>
+      <details><summary>How does the removal work?</summary><p>It reverses the watermark's alpha blending mathematically to restore the exact original pixels, rather than repainting with AI.</p></details>
+      <details><summary>Can I process many images at once?</summary><p>Yes. Bulk parallel processing handles batches and lets you download them all as a ZIP.</p></details>
+      <details><summary>Which watermark variants are supported?</summary><p>The Gemini logo, the star overlay, and the Nano Banana variant are all covered.</p></details>
+      <details><summary>Is there a CLI for developers?</summary><p>Yes — a CLI and SDK are available to integrate watermark removal into your own pipelines.</p></details>
+      <details><summary>Does it support videos?</summary><p>Video removal is in beta and processes the overlay frame-by-frame, also fully in-browser.</p></details>
+      <details><summary>What formats can I use?</summary><p>JPG, PNG and WebP inputs are supported, with PNG or ZIP outputs.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Ready to remove Gemini watermarks for free?</h2>
+      <p>Open source, browser-local, no sign-up. Start in seconds.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#tool">Remove watermarks now</a>
+        <a class="btn btn-ghost" href="#">★ GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot">
+    <div class="logo"><span class="mark">✦</span> GeminiWatermarkRemover.io</div>
+    <div class="foot-links">
+      <a href="#">Terms</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">GitHub</a>
+    </div>
+    <select class="lang">
+      <option>English</option><option>中文</option><option>Español</option>
+      <option>日本語</option><option>Français</option><option>Deutsch</option>
+    </select>
+  </div>
+  <div class="wrap" style="margin-top:20px;font-size:13px;opacity:.75">© 2026 GeminiWatermarkRemover.io · Free &amp; open source. Not affiliated with Google.</div>
+</footer>
+
+<script>
+  function switchTab(el, kind) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+  }
+</script>
+</body>
+</html>

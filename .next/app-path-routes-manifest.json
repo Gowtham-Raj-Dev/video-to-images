@@ -1,0 +1,12 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/favicon.ico/route": "/favicon.ico",
+  "/image/page": "/image",
+  "/multi-image/page": "/multi-image",
+  "/multi-video/page": "/multi-video",
+  "/page": "/",
+  "/privacypolicy/page": "/privacypolicy",
+  "/termsandconditions/page": "/termsandconditions",
+  "/video/page": "/video"
+}

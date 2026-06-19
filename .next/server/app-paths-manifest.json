@@ -1,0 +1,12 @@
+{
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/image/page": "app/image/page.js",
+  "/multi-image/page": "app/multi-image/page.js",
+  "/multi-video/page": "app/multi-video/page.js",
+  "/page": "app/page.js",
+  "/privacypolicy/page": "app/privacypolicy/page.js",
+  "/termsandconditions/page": "app/termsandconditions/page.js",
+  "/video/page": "app/video/page.js"
+}

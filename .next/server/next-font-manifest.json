@@ -1,0 +1,31 @@
+{
+  "app": {
+    "[project]/src/app/_not-found/page": [
+      "static/media/c41ca59f1c34ba31-s.p.2y2uoi4t910qy.woff2"
+    ],
+    "[project]/src/app/image/page": [
+      "static/media/c41ca59f1c34ba31-s.p.2y2uoi4t910qy.woff2"
+    ],
+    "[project]/src/app/multi-image/page": [
+      "static/media/c41ca59f1c34ba31-s.p.2y2uoi4t910qy.woff2"
+    ],
+    "[project]/src/app/multi-video/page": [
+      "static/media/c41ca59f1c34ba31-s.p.2y2uoi4t910qy.woff2"
+    ],
+    "[project]/src/app/page": [
+      "static/media/c41ca59f1c34ba31-s.p.2y2uoi4t910qy.woff2"
+    ],
+    "[project]/src/app/privacypolicy/page": [
+      "static/media/c41ca59f1c34ba31-s.p.2y2uoi4t910qy.woff2"
+    ],
+    "[project]/src/app/termsandconditions/page": [
+      "static/media/c41ca59f1c34ba31-s.p.2y2uoi4t910qy.woff2"
+    ],
+    "[project]/src/app/video/page": [
+      "static/media/c41ca59f1c34ba31-s.p.2y2uoi4t910qy.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pages": {},
+  "pagesUsingSizeAdjust": false
+}
