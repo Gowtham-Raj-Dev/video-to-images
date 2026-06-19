@@ -8,8 +8,8 @@ export default function Footer() {
       <div className="wrap foot" style={{ alignItems: 'center' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           <div className="foot-links">
-            <a href="/image">Image Tool</a>
-            <a href="/video">Video Tool</a>
+            <a href="/gemini-watermark-remove/image">Image Tool</a>
+            <a href="/gemini-watermark-remove/video">Video Tool</a>
           </div>
           <div style={{ color: 'var(--muted, #a1a1aa)', fontSize: '13px', maxWidth: '320px', lineHeight: '1.5' }}>
             We do not store your images or videos. All processing is done locally on your device, ensuring your data remains 100% private.
@@ -17,8 +17,8 @@ export default function Footer() {
         </div>
         <div style={{ textAlign: 'center', fontSize: '14px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', fontWeight: 600 }}>
-            <a href="/privacypolicy" style={{ color: 'var(--muted, #a1a1aa)', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--text, #f4f4f5)'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--muted, #a1a1aa)'}>Privacy Policy</a>
-            <a href="/termsandconditions" style={{ color: 'var(--muted, #a1a1aa)', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--text, #f4f4f5)'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--muted, #a1a1aa)'}>Terms & Conditions</a>
+            <a href="/gemini-watermark-remove/privacypolicy" style={{ color: 'var(--muted, #a1a1aa)', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--text, #f4f4f5)'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--muted, #a1a1aa)'}>Privacy Policy</a>
+            <a href="/gemini-watermark-remove/termsandconditions" style={{ color: 'var(--muted, #a1a1aa)', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--text, #f4f4f5)'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--muted, #a1a1aa)'}>Terms & Conditions</a>
           </div>
           <div style={{ color: 'var(--muted, #a1a1aa)', fontFamily: 'monospace, "Courier New"', fontSize: '13px' }}>
             © 2026 <a href="https://codelove.in" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', textUnderlineOffset: '2px', color: 'var(--text, #f4f4f5)', transition: 'color 0.2s' }}>codelove.in</a> . All rights reserved.

@@ -24,10 +24,10 @@ export default function Header({ activeTab = "none" }: HeaderProps) {
           </a>
         </div>
         <nav className="nav-links">
-          <a href="/image" className={activeTab === "img" || activeTab === "multi-img" ? "active" : ""}>
+          <a href="/gemini-watermark-remove/image" className={activeTab === "img" || activeTab === "multi-img" ? "active" : ""}>
             Image Tool
           </a>
-          <a href="/video" className={activeTab === "vid" || activeTab === "multi-vid" ? "active" : ""}>
+          <a href="/gemini-watermark-remove/video" className={activeTab === "vid" || activeTab === "multi-vid" ? "active" : ""}>
             Video Tool
           </a>
         </nav>
@@ -39,7 +39,7 @@ export default function Header({ activeTab = "none" }: HeaderProps) {
       {/* Mobile Header */}
       <div className="wrap mobile-header">
         <div className="mobile-nav-top">
-          <a href="/" className="mobile-logo">
+          <a href="/gemini-watermark-remove" className="mobile-logo">
             <span className="mobile-mark">✦</span>
             <div className="mobile-logo-text-group">
               <span className="mobile-logo-title">Gemini</span>
@@ -60,7 +60,7 @@ export default function Header({ activeTab = "none" }: HeaderProps) {
         {isOpen && (
           <div className="mobile-nav-dropdown">
             <div className="dropdown-title">Select Tool</div>
-            <a href="/image" className={`dropdown-item ${activeTab === "img" || activeTab === "multi-img" ? "active" : ""}`}>
+            <a href="/gemini-watermark-remove/image" className={`dropdown-item ${activeTab === "img" || activeTab === "multi-img" ? "active" : ""}`}>
               <div className="dropdown-item-icon img-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
               </div>
@@ -69,7 +69,7 @@ export default function Header({ activeTab = "none" }: HeaderProps) {
                 <span className="dropdown-item-desc">Remove watermarks from JPG, PNG, WebP</span>
               </div>
             </a>
-            <a href="/video" className={`dropdown-item ${activeTab === "vid" || activeTab === "multi-vid" ? "active" : ""}`}>
+            <a href="/gemini-watermark-remove/video" className={`dropdown-item ${activeTab === "vid" || activeTab === "multi-vid" ? "active" : ""}`}>
               <div className="dropdown-item-icon vid-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
               </div>
