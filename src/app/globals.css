@@ -344,6 +344,12 @@ h1, h2, h3, h4 {
   50% { transform: translateY(-8px); }
 }
 
+@keyframes fly-up {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+  50% { opacity: 1; }
+  100% { transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.5) rotate(var(--r)); opacity: 0; }
+}
+
 .animate-in { animation: cl-enter 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
 .fade-in { --cl-y: 0; }
 .zoom-in-95 { --cl-scale: 0.95; }
@@ -354,6 +360,7 @@ h1, h2, h3, h4 {
 
 .animate-marquee { animation: cl-marquee 32s linear infinite; }
 .animate-float { animation: cl-float 4s ease-in-out infinite; }
+.animate-fly-up { animation: fly-up 2s ease-out forwards; }
 
 @media (prefers-reduced-motion: reduce) {
   .animate-in, .animate-marquee, .animate-float { animation: none; }

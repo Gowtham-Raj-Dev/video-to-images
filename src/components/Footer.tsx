@@ -34,17 +34,25 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-[color:var(--border)] pt-6 text-sm text-muted sm:flex-row">
           <p>© {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
-          <p className="inline-flex items-center gap-1.5">
+          <p className="inline-flex items-center gap-1.5 flex-wrap justify-center">
             Built with <HeartButton /> by{" "}
             <a
-              href={SITE.brandUrl}
+              href="https://gowtham.codelove.in"
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium text-[color:var(--fg)] transition hover:text-accent"
             >
-              {SITE.brand}
+              Gowtham
             </a>
-            <span className="hidden sm:inline">· Created by {SITE.creator}</span>
+            <span className="text-muted/50 hidden sm:inline">•</span>
+            <a
+              href="https://codelove.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-[color:var(--fg)] transition hover:text-accent"
+            >
+              CodeLove
+            </a>
           </p>
         </div>
       </div>
