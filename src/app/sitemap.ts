@@ -1,52 +1,25 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from "next";
+import { TOOLS } from "@/lib/tools";
+import { SITE } from "@/lib/site";
 
-export const dynamic = 'force-static'
+export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://geminiwatermarkremover.codelove.in'
-  
+  const now = new Date();
+  const staticPages = ["", "/tools", "/contact", "/privacy", "/terms"];
+
   return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/image`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
+    ...staticPages.map((path) => ({
+      url: `${SITE.url}${path}`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: path === "" ? 1 : 0.7,
+    })),
+    ...TOOLS.map((tool) => ({
+      url: `${SITE.url}/${tool.slug}`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
       priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/video`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/multi-image`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/multi-video`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/privacypolicy`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/termsandconditions`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-  ]
+    })),
+  ];
 }

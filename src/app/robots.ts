@@ -1,15 +1,14 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from "next";
+import { SITE } from "@/lib/site";
 
-export const dynamic = 'force-static'
+export const dynamic = "force-static";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://geminiwatermarkremover.codelove.in'
-
   return {
     rules: {
-      userAgent: '*',
-      allow: '/',
+      userAgent: "*",
+      allow: "/",
     },
-    sitemap: `${baseUrl}/sitemap.xml`,
-  }
+    sitemap: `${SITE.url}/sitemap.xml`,
+  };
 }
