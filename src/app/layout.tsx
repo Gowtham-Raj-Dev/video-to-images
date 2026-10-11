@@ -5,7 +5,10 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { PageLoader } from "@/components/PageLoader";
-import { SITE } from "@/lib/site";
+import { JsonLd } from "@/components/JsonLd";
+import { OG_IMAGE, SITE } from "@/lib/site";
+import { siteJsonLd } from "@/lib/seo";
+import { ADSENSE_CLIENT } from "@/lib/adsense";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,6 +31,7 @@ export const metadata: Metadata = {
   applicationName: SITE.name,
   authors: [{ name: SITE.creator, url: SITE.brandUrl }],
   creator: SITE.creator,
+  publisher: SITE.brand,
   keywords: [
     "video to frame",
     "extract frames from video",
@@ -47,13 +51,16 @@ export const metadata: Metadata = {
     type: "website",
     url: SITE.url,
     siteName: SITE.name,
+    locale: "en_US",
     title: `${SITE.name} — Free Video & Image Tools`,
     description: SITE.description,
+    images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: `${SITE.name} — Free Video & Image Tools`,
     description: SITE.description,
+    images: [OG_IMAGE],
   },
   robots: {
     index: true,
@@ -78,7 +85,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={`scroll-smooth ${inter.variable} ${jakarta.variable}`}>
+      <head>
+        {/* Google AdSense — rendered only once a publisher ID is set in src/lib/adsense.ts */}
+        {ADSENSE_CLIENT ? (
+          <>
+            <meta name="google-adsense-account" content={ADSENSE_CLIENT} />
+            <script
+              async
+              src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
+              crossOrigin="anonymous"
+            />
+          </>
+        ) : null}
+      </head>
       <body className="min-h-screen flex flex-col font-sans antialiased">
+        <JsonLd data={siteJsonLd()} />
         <ThemeProvider>
           <a
             href="#main"

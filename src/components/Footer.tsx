@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import { HeartButton } from "@/components/HeartButton";
-import { FOOTER_LINKS, SITE } from "@/lib/site";
+import { FOOTER_LINKS, NETWORK_LINKS, SITE } from "@/lib/site";
 import { VIDEO_TOOLS, IMAGE_TOOLS } from "@/lib/tools";
 import { ShieldCheck, Zap } from "lucide-react";
 
@@ -32,7 +32,53 @@ export function Footer() {
           />
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-[color:var(--border)] pt-6 text-sm text-muted sm:flex-row">
+        {/* CodeLove network */}
+        <div className="mt-12 flex flex-col gap-4 border-t border-[color:var(--border)] pt-6 sm:flex-row sm:items-center sm:gap-8">
+          <h3 className="shrink-0 text-xs font-bold uppercase tracking-widest text-[color:var(--fg)]">More from CodeLove</h3>
+          <ul className="flex flex-wrap gap-x-6 gap-y-2.5">
+            {NETWORK_LINKS.map((l) => (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  title={l.title}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted transition-colors hover:text-[color:var(--fg)]"
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a
+            href="https://codelove.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="CodeLove — codelove.in"
+            className="block w-fit shrink-0 sm:ml-auto"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/codelove/codelove-footer-on-light.png"
+              alt="CodeLove"
+              width={704}
+              height={144}
+              loading="lazy"
+              className="h-12 w-auto [.dark_&]:hidden"
+            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/codelove/codelove-footer-on-dark.png"
+              alt="CodeLove"
+              width={704}
+              height={144}
+              loading="lazy"
+              className="hidden h-12 w-auto [.dark_&]:block"
+            />
+          </a>
+        </div>
+
+        <div className="mt-6 flex flex-col items-center justify-between gap-4 border-t border-[color:var(--border)] pt-6 text-sm text-muted sm:flex-row">
           <p>© {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
           <p className="inline-flex items-center gap-1.5 flex-wrap justify-center">
             Built with <HeartButton /> by{" "}

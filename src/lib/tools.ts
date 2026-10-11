@@ -42,8 +42,10 @@ export interface Tool {
   short: string;
   /** hero sub-headline */
   tagline: string;
-  /** long paragraph for hero + SEO */
+  /** long paragraph for the hero */
   description: string;
+  /** concise (max 160 chars) summary for the <meta name="description"> tag */
+  metaDescription: string;
   accept: string;
   inputFormats: string[];
   outputFormats: string[];
@@ -66,6 +68,8 @@ export const TOOLS: Tool[] = [
     tagline: "Turn any video into a sequence of crisp, high-quality images.",
     description:
       "Convert MP4, WebM and MOV videos into sequential image frames at exactly 10, 30 or 60 FPS. Every frame is rendered natively on the HTML5 canvas at your source resolution, then packaged into a tidy ZIP — no servers, no waiting, no watermarks.",
+    metaDescription:
+      "Extract frames from MP4, WebM or MOV video at 10, 30 or 60 FPS and download them as JPG, PNG or WebP images in a ZIP. Free, and processed in your browser.",
     accept: "video/*",
     inputFormats: ["MP4", "WebM", "MOV", "OGG"],
     outputFormats: ["JPG", "PNG", "WEBP", "ZIP"],
@@ -105,6 +109,8 @@ export const TOOLS: Tool[] = [
     tagline: "Make videos smaller and web-ready without the quality hit.",
     description:
       "Compress MP4 and WebM videos right in your browser using a WebAssembly build of FFmpeg (H.264 / x264). Dial in the exact quality-to-size balance with a CRF slider and export a lean, share-ready file — all processed locally on your machine.",
+    metaDescription:
+      "Compress MP4, WebM and MOV videos in your browser with an adjustable quality slider and download a smaller H.264 MP4. Free, private, nothing uploaded.",
     accept: "video/*",
     inputFormats: ["MP4", "WebM", "MOV"],
     outputFormats: ["MP4 (H.264)"],
@@ -144,6 +150,8 @@ export const TOOLS: Tool[] = [
     tagline: "Strip the audio from your video files instantly.",
     description:
       "Convert MP4, WebM, and MOV videos into high-quality MP3 audio files right in your browser. Using WebAssembly-powered FFmpeg, the audio track is extracted locally without uploading your large video files to any server.",
+    metaDescription:
+      "Extract the audio track from an MP4, WebM or MOV video and save it as an MP3. A free converter that runs in your browser — your video is never uploaded.",
     accept: "video/*",
     inputFormats: ["MP4", "WebM", "MOV"],
     outputFormats: ["MP3"],
@@ -181,6 +189,8 @@ export const TOOLS: Tool[] = [
     tagline: "Reframe your footage for Reels, Shorts, feeds and YouTube.",
     description:
       "Crop any video to a perfect 1:1 square, 9:16 portrait or 16:9 landscape with a precise center crop, powered by FFmpeg in WebAssembly. Ideal for turning one clip into every social format — processed privately on your device.",
+    metaDescription:
+      "Crop video to a 1:1 square, 9:16 portrait or 16:9 landscape for Reels, Shorts and YouTube. Free in-browser tool with no uploads, signup or watermark.",
     accept: "video/*",
     inputFormats: ["MP4", "WebM", "MOV"],
     outputFormats: ["MP4 (H.264)"],
@@ -220,6 +230,8 @@ export const TOOLS: Tool[] = [
     tagline: "Scale videos to the exact resolution you need.",
     description:
       "Resize any video to 1080p, 720p, 480p or 360p while preserving the original aspect ratio, using FFmpeg compiled to WebAssembly. Perfect for hitting upload limits or saving bandwidth — all done locally, with no uploads.",
+    metaDescription:
+      "Resize video to 1080p, 720p, 480p or 360p while keeping the aspect ratio, then download an H.264 MP4. Free and private — processed in your browser.",
     accept: "video/*",
     inputFormats: ["MP4", "WebM", "MOV"],
     outputFormats: ["MP4 (H.264)"],
@@ -258,6 +270,8 @@ export const TOOLS: Tool[] = [
     tagline: "Cut image file sizes down while keeping them sharp.",
     description:
       "Reduce the size of JPG, PNG and WebP images directly in your browser with adjustable quality. Great for faster-loading websites, lighter email attachments and staying under upload limits — processed 100% locally, with nothing uploaded.",
+    metaDescription:
+      "Compress JPG, PNG and WebP images in your browser with high, medium or low quality presets and download a smaller JPG. Free, with nothing uploaded.",
     accept: "image/*",
     inputFormats: ["JPG", "PNG", "WEBP"],
     outputFormats: ["JPG"],
@@ -296,6 +310,8 @@ export const TOOLS: Tool[] = [
     tagline: "Cut images to the exact shape you need.",
     description:
       "Crop images to a 1:1 square, 16:9 landscape, 4:3 standard or a custom inset, with a live preview overlay. A fast, private, canvas-based cropper for profile pictures, thumbnails and social posts — no uploads required.",
+    metaDescription:
+      "Crop JPG, PNG and WebP images to 1:1, 16:9, 4:3 or a custom shape with a live preview. A free image cropper that runs in your browser — no uploads.",
     accept: "image/*",
     inputFormats: ["JPG", "PNG", "WEBP"],
     outputFormats: ["JPG", "PNG", "WEBP"],
@@ -334,6 +350,8 @@ export const TOOLS: Tool[] = [
     tagline: "Scale images to any width and height, precisely.",
     description:
       "Resize images to exact pixel dimensions with an optional aspect-ratio lock. Enter a width or height and get a clean, sharp result on the canvas — ideal for thumbnails, uploads and design assets, all processed privately in your browser.",
+    metaDescription:
+      "Resize JPG, PNG and WebP images to exact pixel dimensions with an optional aspect-ratio lock. Free, private and processed entirely in your browser.",
     accept: "image/*",
     inputFormats: ["JPG", "PNG", "WEBP"],
     outputFormats: ["JPG", "PNG", "WEBP"],

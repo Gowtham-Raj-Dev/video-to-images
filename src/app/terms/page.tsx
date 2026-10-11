@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
 import { LegalPage } from "@/components/LegalPage";
 import { SITE } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Terms of Service — Frame Studio",
+export const metadata: Metadata = pageMetadata({
+  title: "Terms of Service",
   description: "The terms that govern your use of Frame Studio's free browser-based media tools.",
-  alternates: { canonical: "/terms" },
-};
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (
     <LegalPage
       title="Terms of Service"
+      path="/terms"
       updated="July 11, 2026"
       intro={`By accessing or using ${SITE.name} (the "Service"), you agree to these Terms of Service. If you do not agree, please do not use the Service.`}
       sections={[

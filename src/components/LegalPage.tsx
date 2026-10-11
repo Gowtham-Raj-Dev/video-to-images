@@ -1,21 +1,31 @@
+import type { ReactNode } from "react";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbJsonLd } from "@/lib/seo";
+
 export interface LegalSection {
   heading: string;
-  body: string[];
+  /** One entry per paragraph — plain text, or JSX when a paragraph needs links. */
+  body: ReactNode[];
 }
 
 export function LegalPage({
   title,
+  path,
   updated,
   intro,
   sections,
 }: {
   title: string;
+  /** Route of this page, e.g. "/privacy" — used for the breadcrumb structured data. */
+  path: string;
   updated: string;
   intro: string;
   sections: LegalSection[];
 }) {
   return (
     <div className="flex w-full flex-col items-center">
+      <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: title, path }])} />
+
       <section className="w-full border-b border-[color:var(--border)] surface-alt">
         <div className="container-px py-14 sm:py-16">
           <div className="mx-auto max-w-3xl">

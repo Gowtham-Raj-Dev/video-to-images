@@ -8,6 +8,8 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Faq } from "@/components/Faq";
 import { CtaBanner } from "@/components/CtaBanner";
 import { ToolCard } from "@/components/ToolCard";
+import { JsonLd } from "@/components/JsonLd";
+import { toolJsonLd } from "@/lib/seo";
 
 export function ToolPageLayout({ tool, children }: { tool: Tool; children: ReactNode }) {
   const Icon = tool.icon;
@@ -15,6 +17,8 @@ export function ToolPageLayout({ tool, children }: { tool: Tool; children: React
 
   return (
     <div className="flex w-full flex-col items-center">
+      <JsonLd data={toolJsonLd(tool)} />
+
       {/* HERO + WORKSPACE */}
       <section className="w-full border-b border-[color:var(--border)] surface-alt">
         <div className="container-px py-14 sm:py-16">

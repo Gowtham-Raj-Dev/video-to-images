@@ -1,17 +1,21 @@
 import type { Metadata } from "next";
 import { Mail, MessageSquare, ShieldCheck, Clock } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
+import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact — Frame Studio",
+export const metadata: Metadata = pageMetadata({
+  title: "Contact",
   description: "Get in touch with the Frame Studio team. Questions, feedback and feature requests are always welcome.",
-  alternates: { canonical: "/contact" },
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (
     <div className="flex w-full flex-col items-center">
+      <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }])} />
+
       <section className="w-full border-b border-[color:var(--border)] surface-alt">
         <div className="container-px py-16 sm:py-20">
           <div className="mx-auto max-w-2xl text-center">

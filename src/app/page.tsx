@@ -15,6 +15,8 @@ import { ToolCard } from "@/components/ToolCard";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Faq } from "@/components/Faq";
 import { CtaBanner } from "@/components/CtaBanner";
+import { JsonLd } from "@/components/JsonLd";
+import { faqJsonLd } from "@/lib/seo";
 
 const HOME_FAQS = [
   { q: "Is Frame Studio really free?", a: "Yes. Every tool in the suite is completely free with no signup, no trials and no hidden limits. Just open a tool and use it." },
@@ -25,7 +27,7 @@ const HOME_FAQS = [
 ];
 
 const STATS = [
-  { value: "7", label: "Pro tools" },
+  { value: String(TOOLS.length), label: "Pro tools" },
   { value: "0", label: "Uploads to servers" },
   { value: "100%", label: "Processed locally" },
   { value: "0", label: "Watermarks added" },
@@ -34,6 +36,8 @@ const STATS = [
 export default function Home() {
   return (
     <div className="flex w-full flex-col items-center bg-[color:var(--bg)]">
+      <JsonLd data={faqJsonLd(HOME_FAQS)} />
+
       {/* HERO */}
       <section className="relative w-full overflow-hidden border-b border-[color:var(--border)]">
         <div className="pointer-events-none absolute inset-0 grid-bg" aria-hidden="true" />
@@ -86,7 +90,7 @@ export default function Home() {
         <SectionHeading
           eyebrow="The toolkit"
           title="A tool for every media task"
-          description="Seven fast, private, browser-based tools to convert, compress, crop and resize your videos and images."
+          description={`${TOOLS.length} fast, private, browser-based tools to convert, compress, crop and resize your videos and images.`}
         />
         <div className="mx-auto mt-14 grid max-w-6xl gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {TOOLS.map((tool) => (
@@ -177,7 +181,7 @@ export default function Home() {
           />
           <div className="mx-auto mt-14 grid max-w-4xl gap-6 md:grid-cols-3">
             {[
-              { n: "01", t: "Choose a tool", d: "Pick from seven native media utilities built for a specific job." },
+              { n: "01", t: "Choose a tool", d: `Pick from ${TOOLS.length} native media utilities built for a specific job.` },
               { n: "02", t: "Drop your media", d: "Add a file securely — it's processed on your device, never uploaded." },
               { n: "03", t: "Export instantly", d: "Process natively and download the result in a single click." },
             ].map((s) => (

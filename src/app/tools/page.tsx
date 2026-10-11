@@ -3,13 +3,15 @@ import { Sparkles, ShieldCheck, Zap, Ban } from "lucide-react";
 import { TOOLS } from "@/lib/tools";
 import { ToolsExplorer } from "@/components/ToolsExplorer";
 import { CtaBanner } from "@/components/CtaBanner";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "All Tools — Free Browser-Based Video & Image Toolkit",
   description:
     "Browse the full Frame Studio toolkit: extract frames, compress, crop and resize videos and images — all free, private and processed in your browser.",
-  alternates: { canonical: "/tools" },
-};
+  path: "/tools",
+});
 
 const HIGHLIGHTS = [
   { icon: ShieldCheck, label: "100% private" },
@@ -20,6 +22,8 @@ const HIGHLIGHTS = [
 export default function ToolsPage() {
   return (
     <div className="flex w-full flex-col items-center">
+      <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Tools", path: "/tools" }])} />
+
       {/* Hero */}
       <section className="relative w-full overflow-hidden border-b border-[color:var(--border)] surface-alt">
         <div className="pointer-events-none absolute inset-0 grid-bg" aria-hidden="true" />
