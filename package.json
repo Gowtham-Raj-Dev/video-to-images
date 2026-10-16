@@ -12,8 +12,8 @@
     "license": "MIT",
     "type": "module",
     "scripts": {
-        "dev": "next dev",
-        "build": "next build",
+        "dev": "next dev --webpack",
+        "build": "next build --webpack",
         "start": "next start",
         "lint": "next lint"
     },
@@ -43,7 +43,10 @@
     "packageManager": "pnpm@10.11.0",
     "pnpm": {
         "onlyBuiltDependencies": [
-            "esbuild"
+            "esbuild",
+            "protobufjs",
+            "sharp",
+            "unrs-resolver"
         ]
     },
     "dependencies": {
