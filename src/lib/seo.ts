@@ -69,6 +69,7 @@ export function siteJsonLd() {
         "@id": WEBSITE_ID,
         url: SITE.url,
         name: SITE.name,
+        alternateName: [`${SITE.name} by ${SITE.brand}`, `${SITE.brand} Video to Images`, "videotoimages.codelove.in"],
         description: SITE.description,
         inLanguage: "en",
         publisher: { "@id": ORG_ID },

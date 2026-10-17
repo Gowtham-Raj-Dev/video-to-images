@@ -24,7 +24,7 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `${SITE.name} | Free Video & Image Tools in Your Browser`,
+    default: `Video to Images & Free Video Tools | ${SITE.name} by ${SITE.brand}`,
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
@@ -44,7 +44,15 @@ export const metadata: Metadata = {
     "resize image online",
     "no watermark video tools",
     "frame studio",
+    "video to images",
+    "video to jpg",
+    "video to png",
+    "extract images from video",
+    "video frame extractor",
+    "video to mp3 converter",
+    "screenshot from video",
     "codelove",
+    "codelove video to images",
   ],
   alternates: { canonical: "/" },
   openGraph: {

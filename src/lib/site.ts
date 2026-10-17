@@ -56,4 +56,5 @@ export const NETWORK_LINKS: readonly { label: string; href: string; title?: stri
   { label: "Link in Bio", href: "https://linkinbio.codelove.in" },
   { label: "3D Models", href: "https://models.codelove.in", title: "Free 3D model library" },
   { label: "Video to GIF", href: "https://videotogif.codelove.in", title: "GIF Studio — convert video to GIF" },
+  { label: "3D Games", href: "https://games.codelove.in", title: "Free 3D games in your browser" },
 ];
