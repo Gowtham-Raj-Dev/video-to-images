@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import { HeartButton } from "@/components/HeartButton";
-import { FOOTER_LINKS, NETWORK_LINKS, SITE } from "@/lib/site";
+import { FOOTER_LINKS, GUIDE_LINKS, NETWORK_LINKS, SITE } from "@/lib/site";
 import { VIDEO_TOOLS, IMAGE_TOOLS } from "@/lib/tools";
 import { ShieldCheck, Zap } from "lucide-react";
 
@@ -33,23 +33,44 @@ export function Footer() {
         </div>
 
         {/* CodeLove network */}
-        <div className="mt-12 flex flex-col gap-4 border-t border-[color:var(--border)] pt-6 sm:flex-row sm:items-center sm:gap-8">
-          <h3 className="shrink-0 text-xs font-bold uppercase tracking-widest text-[color:var(--fg)]">More from CodeLove</h3>
-          <ul className="flex flex-wrap gap-x-6 gap-y-2.5">
-            {NETWORK_LINKS.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  title={l.title}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted transition-colors hover:text-[color:var(--fg)]"
-                >
-                  {l.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+        <div className="mt-12 flex flex-col gap-6 border-t border-[color:var(--border)] pt-6 sm:flex-row sm:items-start sm:gap-10">
+          <div className="flex flex-col gap-6 sm:flex-row sm:gap-10">
+            <nav aria-label="CodeLove network">
+              <h3 className="text-xs font-bold uppercase tracking-widest text-[color:var(--fg)]">CodeLove network</h3>
+              <ul className="mt-4 space-y-2.5">
+                {NETWORK_LINKS.map((l) => (
+                  <li key={l.href}>
+                    <a
+                      href={l.href}
+                      title={l.title}
+                      target="_blank"
+                      rel="noopener"
+                      className="text-sm text-muted transition-colors hover:text-[color:var(--fg)]"
+                    >
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <nav aria-label="Guides">
+              <h3 className="text-xs font-bold uppercase tracking-widest text-[color:var(--fg)]">Guides</h3>
+              <ul className="mt-4 space-y-2.5">
+                {GUIDE_LINKS.map((l) => (
+                  <li key={l.href}>
+                    <a
+                      href={l.href}
+                      target="_blank"
+                      rel="noopener"
+                      className="text-sm text-muted transition-colors hover:text-[color:var(--fg)]"
+                    >
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
           <a
             href="https://codelove.in"
             target="_blank"

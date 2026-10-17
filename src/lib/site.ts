@@ -52,9 +52,15 @@ export const FOOTER_LINKS = {
 /** The CodeLove network — the main site plus its sister tools (`title` is the link's hover text). */
 export const NETWORK_LINKS: readonly { label: string; href: string; title?: string }[] = [
   { label: "CodeLove", href: "https://codelove.in", title: "CodeLove — main site" },
-  { label: "Downloader", href: "https://downloader.codelove.in", title: "Instagram & Pinterest media downloader" },
-  { label: "Link in Bio", href: "https://linkinbio.codelove.in" },
-  { label: "3D Models", href: "https://models.codelove.in", title: "Free 3D model library" },
-  { label: "Video to GIF", href: "https://videotogif.codelove.in", title: "GIF Studio — convert video to GIF" },
-  { label: "3D Games", href: "https://games.codelove.in", title: "Free 3D games in your browser" },
+  { label: "Free 3D Models", href: "https://models.codelove.in", title: "Free 3D model library" },
+  { label: "Free 3D Games", href: "https://games.codelove.in", title: "Free 3D games in your browser" },
+  { label: "Instagram & Pinterest Downloader", href: "https://downloader.codelove.in", title: "Instagram & Pinterest media downloader" },
+  { label: "Link in Bio", href: "https://linkinbio.codelove.in", title: "Free link-in-bio pages" },
+  { label: "Video to GIF", href: "https://videotogif.codelove.in", title: "Convert video to GIF" },
+];
+
+/** Guides on the main CodeLove site that cover what this site's tools do. */
+export const GUIDE_LINKS: readonly { label: string; href: string }[] = [
+  { label: "How to extract frames from video", href: "https://codelove.in/learn/guide/how-to-extract-frames-from-video" },
+  { label: "How to extract audio from video as MP3", href: "https://codelove.in/learn/guide/how-to-extract-audio-from-video-as-mp3" },
 ];
