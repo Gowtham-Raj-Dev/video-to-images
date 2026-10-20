@@ -57,6 +57,8 @@ export const NETWORK_LINKS: readonly { label: string; href: string; title?: stri
   { label: "Instagram & Pinterest Downloader", href: "https://downloader.codelove.in", title: "Instagram & Pinterest media downloader" },
   { label: "Link in Bio", href: "https://linkinbio.codelove.in", title: "Free link-in-bio pages" },
   { label: "Video to GIF", href: "https://videotogif.codelove.in", title: "Convert video to GIF" },
+  { label: "Free YouTube Automation", href: "https://utubeflow.codelove.in", title: "Bulk upload & schedule YouTube videos for free" },
+  { label: "Free Java Games", href: "https://javagames-emu.codelove.in", title: "Play old Java J2ME phone games free in your browser or on Android" },
 ];
 
 /** Guides on the main CodeLove site that cover what this site's tools do. */
