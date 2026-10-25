@@ -8,7 +8,8 @@ import { PageLoader } from "@/components/PageLoader";
 import { JsonLd } from "@/components/JsonLd";
 import { OG_IMAGE, SITE } from "@/lib/site";
 import { siteJsonLd } from "@/lib/seo";
-import { ADSENSE_CLIENT } from "@/lib/adsense";
+import { ADSENSE_CLIENT, GA_MEASUREMENT_ID } from "@/lib/adsense";
+import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -126,6 +127,15 @@ export default function RootLayout({
           <main className="flex-1" id="main">{children}</main>
           <Footer />
         </ThemeProvider>
+        {/* Google Analytics — only once a measurement ID is set in src/lib/adsense.ts */}
+        {GA_MEASUREMENT_ID ? (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} strategy="afterInteractive" />
+            <Script id="ga-init" strategy="afterInteractive">
+              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_MEASUREMENT_ID}');`}
+            </Script>
+          </>
+        ) : null}
       </body>
     </html>
   );

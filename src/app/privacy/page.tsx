@@ -61,6 +61,13 @@ export default function PrivacyPage() {
           ],
         },
         {
+          heading: "Analytics",
+          body: [
+            "We use Google Analytics to count visits and see which features are used — pages viewed, device and browser type, rough location and how you arrived. It sets cookies to do this, and we use the figures only in aggregate, not to identify you. Your videos are never sent to analytics.",
+            "You can opt out with Google's browser add-on at tools.google.com/dlpage/gaoptout, or by blocking cookies for this site.",
+          ],
+        },
+        {
           heading: "Advertising",
           body: [
             "We use or may use Google AdSense to show advertisements on this site.",
