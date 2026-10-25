@@ -33,11 +33,11 @@ export function Footer() {
         </div>
 
         {/* CodeLove network */}
-        <div className="mt-12 flex flex-col gap-6 border-t border-[color:var(--border)] pt-6 sm:flex-row sm:items-start sm:gap-10">
-          <div className="flex flex-col gap-6 sm:flex-row sm:gap-10">
+        <div className="mt-12 grid gap-10 border-t border-[color:var(--border)] pt-8 lg:grid-cols-[1fr_auto] lg:items-start">
+          <div className="grid gap-8">
             <nav aria-label="CodeLove network">
               <h3 className="text-xs font-bold uppercase tracking-widest text-[color:var(--fg)]">CodeLove network</h3>
-              <ul className="mt-4 space-y-2.5">
+              <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2.5 sm:grid-cols-3 lg:grid-cols-4">
                 {NETWORK_LINKS.map((l) => (
                   <li key={l.href}>
                     <a
@@ -55,7 +55,7 @@ export function Footer() {
             </nav>
             <nav aria-label="Guides">
               <h3 className="text-xs font-bold uppercase tracking-widest text-[color:var(--fg)]">Guides</h3>
-              <ul className="mt-4 space-y-2.5">
+              <ul className="mt-4 grid gap-x-6 gap-y-2.5 sm:grid-cols-2">
                 {GUIDE_LINKS.map((l) => (
                   <li key={l.href}>
                     <a
@@ -71,12 +71,13 @@ export function Footer() {
               </ul>
             </nav>
           </div>
+          <div className="max-w-[260px] lg:justify-self-end">
           <a
             href="https://codelove.in"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="CodeLove — codelove.in"
-            className="block w-fit shrink-0 sm:ml-auto"
+            className="block w-fit shrink-0"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -97,6 +98,12 @@ export function Footer() {
               className="hidden h-12 w-auto [.dark_&]:block"
             />
           </a>
+          {/* What CodeLove is, in one line — same text on every CodeLove site. */}
+          <p className="mt-4 text-sm leading-relaxed text-muted">
+            CodeLove makes free web tools, apps and games for creators, students and developers — simple to use, no
+            hidden fees.
+          </p>
+          </div>
         </div>
 
         <div className="mt-6 flex flex-col items-center justify-between gap-4 border-t border-[color:var(--border)] pt-6 text-sm text-muted sm:flex-row">

@@ -54,7 +54,7 @@ export const NETWORK_LINKS: readonly { label: string; href: string; title?: stri
   { label: "CodeLove", href: "https://codelove.in", title: "CodeLove — main site" },
   { label: "Free 3D Models", href: "https://models.codelove.in", title: "Free 3D model library" },
   { label: "Free 3D Games", href: "https://games.codelove.in", title: "Free 3D games in your browser" },
-  { label: "Instagram & Pinterest Downloader", href: "https://downloader.codelove.in", title: "Instagram & Pinterest media downloader" },
+  { label: "Insta Downloader", href: "https://downloader.codelove.in", title: "Free Instagram Reels, video & photo downloader" },
   { label: "Link in Bio", href: "https://linkinbio.codelove.in", title: "Free link-in-bio pages" },
   { label: "Video to GIF", href: "https://videotogif.codelove.in", title: "Convert video to GIF" },
   { label: "Free YouTube Automation", href: "https://utubeflow.codelove.in", title: "Bulk upload & schedule YouTube videos for free" },
