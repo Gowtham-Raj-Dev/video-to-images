@@ -3,11 +3,6 @@
     .bg { fill: #000000; }
     .fg { stroke: #ffffff; }
     .fill { fill: #ffffff; }
-    @media (prefers-color-scheme: dark) {
-      .bg { fill: #ffffff; }
-      .fg { stroke: #000000; }
-      .fill { fill: #000000; }
-    }
   </style>
   <rect class="bg" width="64" height="64" rx="16"/>
   <g class="fg" fill="none" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
