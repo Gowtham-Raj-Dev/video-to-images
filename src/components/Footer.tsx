@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import { HeartButton } from "@/components/HeartButton";
+import { ContactLinks } from "@/components/ContactLinks";
 import { FOOTER_LINKS, GUIDE_LINKS, NETWORK_LINKS, SITE } from "@/lib/site";
 import { VIDEO_TOOLS, IMAGE_TOOLS } from "@/lib/tools";
 import { ShieldCheck, Zap } from "lucide-react";
@@ -127,6 +128,8 @@ export function Footer() {
             >
               CodeLove
             </a>
+            <span className="text-muted/50">•</span>
+            <ContactLinks className="text-[color:var(--fg)]" />
           </p>
         </div>
       </div>
