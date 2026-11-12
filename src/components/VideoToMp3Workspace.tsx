@@ -96,6 +96,7 @@ export function VideoToMp3Workspace() {
             id="video-upload" 
             type="file" 
             accept="video/*" 
+            aria-label="Upload video file to extract MP3 audio"
             className="hidden" 
             onChange={handleFileChange}
           />

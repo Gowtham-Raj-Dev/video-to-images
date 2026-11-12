@@ -196,6 +196,7 @@ export function VideoCropWorkspace() {
             id="video-upload-crop" 
             type="file" 
             accept="video/*" 
+            aria-label="Upload video file to crop"
             className="hidden" 
             onChange={handleFileChange}
           />

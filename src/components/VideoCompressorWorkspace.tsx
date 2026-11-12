@@ -99,6 +99,7 @@ export function VideoCompressorWorkspace() {
             id="video-upload" 
             type="file" 
             accept="video/*" 
+            aria-label="Upload video file to compress"
             className="hidden" 
             onChange={handleFileChange}
           />

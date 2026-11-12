@@ -98,6 +98,7 @@ export function VideoResizeWorkspace() {
             id="video-upload" 
             type="file" 
             accept="video/*" 
+            aria-label="Upload video file to resize"
             className="hidden" 
             onChange={handleFileChange}
           />
