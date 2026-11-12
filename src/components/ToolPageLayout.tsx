@@ -55,6 +55,7 @@ export function ToolPageLayout({ tool, children }: { tool: Tool; children: React
 
           {/* Workspace */}
           <div id="workspace" className="mx-auto mt-12 w-full max-w-5xl scroll-mt-24">
+            <h2 className="sr-only">{tool.name} Workspace</h2>
             {children}
           </div>
         </div>

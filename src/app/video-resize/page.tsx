@@ -7,7 +7,7 @@ import { VideoResizeWorkspace } from "@/components/VideoResizeWorkspace";
 const tool = getTool("video-resize")!;
 
 export const metadata: Metadata = pageMetadata({
-  title: `${tool.name} — Resize Video to 1080p, 720p, 480p Free`,
+  title: `${tool.name} — Scale to 1080p & 720p`,
   description: tool.metaDescription,
   path: `/${tool.slug}`,
 });

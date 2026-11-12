@@ -10,32 +10,13 @@ import { AnimatePresence, motion } from "framer-motion";
  *  - every client-side route change (Home -> Tools, tool -> tool, etc.).
  */
 export function PageLoader() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const pathname = usePathname();
   const isFirstRender = useRef(true);
 
-  // Initial load / hard refresh.
+  // Skip blocking initial SSR/first paint so Core Web Vitals & crawlers see the page immediately.
   useEffect(() => {
-    const MIN_VISIBLE = 700; // keep it on screen long enough to feel intentional
-    const start = performance.now();
-
-    const finish = () => {
-      const elapsed = performance.now() - start;
-      const remaining = Math.max(0, MIN_VISIBLE - elapsed);
-      window.setTimeout(() => setLoading(false), remaining);
-    };
-
-    if (document.readyState === "complete") {
-      finish();
-    } else {
-      window.addEventListener("load", finish, { once: true });
-      // Safety net in case the load event was already missed.
-      const fallback = window.setTimeout(finish, 2500);
-      return () => {
-        window.removeEventListener("load", finish);
-        window.clearTimeout(fallback);
-      };
-    }
+    setLoading(false);
   }, []);
 
   // Client-side route changes.

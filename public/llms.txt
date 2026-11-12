@@ -1,0 +1,17 @@
+# Frame Studio — Video to Images & Free Media Tools (by CodeLove)
+
+> Free in-browser media tools: extract frames from video, compress video, crop video, resize video, convert video to MP3, and optimize images privately on your device.
+
+## Tools
+- [Video to Frame / Images](https://videotoimages.codelove.in/video-to-frame): Extract crisp PNG/JPG frames from any video and download as ZIP.
+- [Video Compressor](https://videotoimages.codelove.in/video-compressor): Reduce video file size in-browser with adjustable quality.
+- [Video Crop](https://videotoimages.codelove.in/video-crop): Crop videos to 1:1, 9:16, 16:9, or custom aspect ratios.
+- [Video Resize](https://videotoimages.codelove.in/video-resize): Resize videos to 1080p, 720p, or 480p without uploads.
+- [Video to MP3](https://videotoimages.codelove.in/video-to-mp3): Extract audio tracks from MP4/MOV/WebM videos to MP3.
+- [Image Compressor](https://videotoimages.codelove.in/image-compressor): Shrink PNG, JPG, and WebP images privately.
+- [Image Crop](https://videotoimages.codelove.in/image-crop) & [Image Resize](https://videotoimages.codelove.in/image-resize)
+
+## Companion CodeLove Video Tool
+- [Video Cut (Shorts Cutter)](https://videocut.codelove.in): Split and cut videos into equal parts or vertical 9:16 Shorts.
+- [Video to GIF](https://videotogif.codelove.in): Convert and optimize animated GIFs in-browser.
+

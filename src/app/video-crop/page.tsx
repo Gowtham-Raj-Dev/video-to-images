@@ -7,7 +7,7 @@ import { VideoCropWorkspace } from "@/components/VideoCropWorkspace";
 const tool = getTool("video-crop")!;
 
 export const metadata: Metadata = pageMetadata({
-  title: `${tool.name} — Crop Video to 1:1, 9:16, 16:9 Free`,
+  title: `${tool.name} — Crop 1:1, 9:16 & 16:9 Free`,
   description: tool.metaDescription,
   path: `/${tool.slug}`,
   keywords: tool.keywords,

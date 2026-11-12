@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "All Tools — Free Browser-Based Video & Image Toolkit",
+  title: "All Free Video & Image Tools",
   description:
     "Browse the full Frame Studio toolkit: extract frames, compress, crop and resize videos and images — all free, private and processed in your browser.",
   path: "/tools",
@@ -50,6 +50,7 @@ export default function ToolsPage() {
       {/* Showcase */}
       <section className="container-px w-full py-14 sm:py-16">
         <div className="mx-auto max-w-6xl">
+          <h2 className="sr-only">Browse Free Online Video and Image Tools</h2>
           <ToolsExplorer />
         </div>
       </section>

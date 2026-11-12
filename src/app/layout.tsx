@@ -25,7 +25,7 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `Video to Images & Free Video Tools | ${SITE.name} by ${SITE.brand}`,
+    default: `Video to Images & Free Video Tools | ${SITE.name}`,
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
@@ -125,6 +125,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`scroll-smooth ${inter.variable} ${jakarta.variable}`}>
       <head>
+        <link rel="sitemap" type="application/xml" href="https://videotoimages.codelove.in/sitemap.xml" />
         {/* Google AdSense — rendered only once a publisher ID is set in src/lib/adsense.ts */}
         {ADSENSE_CLIENT ? (
           <>
