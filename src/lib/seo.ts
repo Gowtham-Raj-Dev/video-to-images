@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { OG_IMAGE, SITE } from "@/lib/site";
+import { NETWORK_LINKS, OG_IMAGE, SITE } from "@/lib/site";
 import type { Tool } from "@/lib/tools";
 
 const ORG_ID = `${SITE.brandUrl}/#organization`;
+const PERSON_ID = `${SITE.creatorUrl}/#person`;
 const WEBSITE_ID = `${SITE.url}/#website`;
 
 /** Absolute URL for a site path. No trailing slash, matching the static export (`/tools` -> `tools.html`). */
@@ -21,15 +22,18 @@ export function pageMetadata({
   title,
   description,
   path,
+  keywords,
 }: {
   title: string;
   description: string;
   path: string;
+  keywords?: string[];
 }): Metadata {
   const socialTitle = `${title} | ${SITE.name}`;
   return {
     title,
     description,
+    ...(keywords?.length ? { keywords } : {}),
     alternates: { canonical: path },
     openGraph: {
       type: "website",
@@ -59,19 +63,29 @@ export function siteJsonLd() {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "Person",
+        "@id": PERSON_ID,
+        name: SITE.creator,
+        url: SITE.creatorUrl,
+        worksFor: { "@id": ORG_ID },
+      },
+      {
         "@type": "Organization",
         "@id": ORG_ID,
         name: SITE.brand,
         url: SITE.brandUrl,
+        founder: { "@id": PERSON_ID },
+        sameAs: NETWORK_LINKS.map((l) => l.href),
       },
       {
         "@type": "WebSite",
         "@id": WEBSITE_ID,
         url: SITE.url,
         name: SITE.name,
-        alternateName: [`${SITE.name} by ${SITE.brand}`, `${SITE.brand} Video to Images`, "videotoimages.codelove.in"],
+        alternateName: [`${SITE.name} by ${SITE.brand}`, `${SITE.brand} Video to Images`, "videotoimages.codelove.in", "Video Frame Extractor & Compressor"],
         description: SITE.description,
         inLanguage: "en",
+        creator: { "@id": PERSON_ID },
         publisher: { "@id": ORG_ID },
       },
     ],
@@ -129,6 +143,7 @@ export function toolJsonLd(tool: Tool) {
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
         featureList: tool.features.map((f) => f.title),
         isPartOf: { "@id": WEBSITE_ID },
+        creator: { "@id": PERSON_ID },
         publisher: { "@id": ORG_ID },
       },
       {

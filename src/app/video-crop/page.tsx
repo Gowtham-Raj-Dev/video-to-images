@@ -10,6 +10,7 @@ export const metadata: Metadata = pageMetadata({
   title: `${tool.name} — Crop Video to 1:1, 9:16, 16:9 Free`,
   description: tool.metaDescription,
   path: `/${tool.slug}`,
+  keywords: tool.keywords,
 });
 
 export default function Page() {

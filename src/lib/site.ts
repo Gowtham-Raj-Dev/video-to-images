@@ -9,6 +9,7 @@ export const SITE = {
   url: IS_PROD ? "https://videotoimages.codelove.in" : "http://localhost:3000",
   basePath: "",
   creator: "Gowtham",
+  creatorUrl: "https://gowtham.codelove.in",
   brand: "CodeLove",
   brandUrl: "https://codelove.in",
   email: "support@codelove.in",
@@ -52,11 +53,13 @@ export const FOOTER_LINKS = {
 /** The CodeLove network — the main site plus its sister tools (`title` is the link's hover text). */
 export const NETWORK_LINKS: readonly { label: string; href: string; title?: string }[] = [
   { label: "CodeLove", href: "https://codelove.in", title: "CodeLove — main site" },
+  { label: "Gowtham Portfolio", href: "https://gowtham.codelove.in", title: "Gowtham — Creative Web Developer & Founder of CodeLove" },
   { label: "Free 3D Models", href: "https://models.codelove.in", title: "Free 3D model library" },
   { label: "Free 3D Games", href: "https://games.codelove.in", title: "Free 3D games in your browser" },
   { label: "Insta Downloader", href: "https://downloader.codelove.in", title: "Free Instagram Reels, video & photo downloader" },
   { label: "Link in Bio", href: "https://linkinbio.codelove.in", title: "Free link-in-bio pages" },
   { label: "Video to GIF", href: "https://videotogif.codelove.in", title: "Convert video to GIF" },
+  { label: "Video Cut", href: "https://videocut.codelove.in", title: "Cut & split videos into Shorts right in your browser" },
   { label: "Free YouTube Automation", href: "https://utubeflow.codelove.in", title: "Bulk upload & schedule YouTube videos for free" },
   { label: "Free Java Games", href: "https://javaplay.codelove.in", title: "Play old Java J2ME phone games free in your browser or on Android" },
 ];

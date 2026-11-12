@@ -46,6 +46,7 @@ export interface Tool {
   description: string;
   /** concise (max 160 chars) summary for the <meta name="description"> tag */
   metaDescription: string;
+  keywords?: string[];
   accept: string;
   inputFormats: string[];
   outputFormats: string[];
@@ -69,7 +70,19 @@ export const TOOLS: Tool[] = [
     description:
       "Convert MP4, WebM and MOV videos into sequential image frames at exactly 10, 30 or 60 FPS. Every frame is rendered natively on the HTML5 canvas at your source resolution, then packaged into a tidy ZIP — no servers, no waiting, no watermarks.",
     metaDescription:
-      "Extract frames from MP4, WebM or MOV video at 10, 30 or 60 FPS and download them as JPG, PNG or WebP images in a ZIP. Free, and processed in your browser.",
+      "Extract frames from MP4, WebM or MOV video at 10, 30 or 60 FPS and download JPG, PNG or WebP images in a ZIP. Free video frame extractor in your browser.",
+    keywords: [
+      "video to frames",
+      "video to frame",
+      "video frame extractor",
+      "extract frames from video",
+      "video to frames converter",
+      "video to frame converter",
+      "online video frame",
+      "frame extractor from video",
+      "video to images",
+      "extract images from video",
+    ],
     accept: "video/*",
     inputFormats: ["MP4", "WebM", "MOV", "OGG"],
     outputFormats: ["JPG", "PNG", "WEBP", "ZIP"],
@@ -105,12 +118,29 @@ export const TOOLS: Tool[] = [
     icon: Minimize,
     color: "bg-gradient-to-br from-teal-400 to-emerald-500",
     popular: true,
-    short: "Shrink video file size without losing visible quality.",
-    tagline: "Make videos smaller and web-ready without the quality hit.",
+    short: "Reduce video size online without losing visible quality.",
+    tagline: "Compress MP4, WebM & MOV videos for WhatsApp, email, and the web.",
     description:
-      "Compress MP4 and WebM videos right in your browser using a WebAssembly build of FFmpeg (H.264 / x264). Dial in the exact quality-to-size balance with a CRF slider and export a lean, share-ready file — all processed locally on your machine.",
+      "Compress MP4, WebM, and MOV videos right inside your browser using WebAssembly FFmpeg (H.264 / x264). Adjust the quality-to-size CRF slider to reduce video file size for WhatsApp, web uploads, or email — zero server uploads and no watermarks.",
     metaDescription:
-      "Compress MP4, WebM and MOV videos in your browser with an adjustable quality slider and download a smaller H.264 MP4. Free, private, nothing uploaded.",
+      "Free online video compressor & shrinker. Reduce MP4, WebM, and MOV file size in your browser with H.264 quality control — no uploads, no watermark.",
+    keywords: [
+      "online video compressor",
+      "video compressor online",
+      "video compressor free",
+      "compress video online",
+      "compress video free",
+      "reduce video size online free",
+      "video size compressor",
+      "fast video compressor",
+      "compress mp4",
+      "compress video for whatsapp",
+      "video shrinker",
+      "online video shrinker",
+      "video reducer online free",
+      "reduce video size for web",
+      "compress video without losing quality",
+    ],
     accept: "video/*",
     inputFormats: ["MP4", "WebM", "MOV"],
     outputFormats: ["MP4 (H.264)"],
@@ -121,21 +151,21 @@ export const TOOLS: Tool[] = [
       { title: "Instant preview", desc: "Play the compressed result back before you download it.", icon: MonitorSmartphone },
     ],
     steps: [
-      { title: "Upload a video", desc: "Drop in an MP4, WebM or MOV file up to ~100MB for smooth browser processing." },
+      { title: "Select a video", desc: "Drop in an MP4, WebM or MOV file — compression stays local to your device." },
       { title: "Set compression level", desc: "Slide between high quality and small size — CRF 28 is a great default." },
       { title: "Download the result", desc: "Preview the output, then save your lighter MP4 in a click." },
     ],
     benefits: [
-      "H.264 / x264 encoding produces broadly compatible MP4 files.",
-      "The CRF slider gives you precise control over quality vs. size.",
-      "The FFmpeg engine downloads once, then compresses fully offline.",
-      "Great for email attachments, messaging apps and faster uploads.",
+      "H.264 / x264 encoding produces broadly compatible MP4 files for WhatsApp and the web.",
+      "The CRF slider gives you precise control over quality vs. target size.",
+      "The FFmpeg engine downloads once, then compresses completely privately in your browser.",
+      "Great for email attachments, messaging apps, and optimizing web videos without watermarks.",
     ],
     faqs: [
-      { q: "How much smaller will my video get?", a: "It depends on the source and the CRF you pick. A typical phone clip can shrink 40–70% at the balanced setting with no obvious quality loss." },
+      { q: "How much smaller will my video get?", a: "It depends on the source and the CRF you pick. A typical clip can shrink 40–70% at the balanced setting with no obvious quality loss." },
       { q: "Why does it load an engine the first time?", a: "The tool downloads the FFmpeg WebAssembly core (~30MB) once. After that, compression runs locally with nothing to upload." },
-      { q: "What's the recommended file size?", a: "For a smooth in-browser experience we suggest videos under ~100MB. Larger files work but use more memory and time." },
-      { q: "Is the output compatible everywhere?", a: "Yes — output is standard H.264 MP4, which plays on virtually every device, player and platform." },
+      { q: "Can I compress large MP4 videos?", a: "Because everything runs inside browser memory rather than uploading to a remote server, smooth performance depends on your device RAM (~100MB clips encode fastest, while desktops with more memory handle larger files)." },
+      { q: "Is the output compatible everywhere?", a: "Yes — output is standard H.264 MP4, which plays on WhatsApp, web browsers, mobile phones, and desktop players with no watermark." },
     ],
     related: ["video-resize", "video-crop", "video-to-mp3"],
   },
@@ -191,6 +221,14 @@ export const TOOLS: Tool[] = [
       "Crop any video to a perfect 1:1 square, 9:16 portrait or 16:9 landscape with a precise center crop, powered by FFmpeg in WebAssembly. Ideal for turning one clip into every social format — processed privately on your device.",
     metaDescription:
       "Crop video to a 1:1 square, 9:16 portrait or 16:9 landscape for Reels, Shorts and YouTube. Free in-browser tool with no uploads, signup or watermark.",
+    keywords: [
+      "crop video 1 1",
+      "free convert crop video",
+      "cut crop",
+      "crop video online free",
+      "crop video for youtube shorts",
+      "crop video 9 16",
+    ],
     accept: "video/*",
     inputFormats: ["MP4", "WebM", "MOV"],
     outputFormats: ["MP4 (H.264)"],
@@ -272,6 +310,13 @@ export const TOOLS: Tool[] = [
       "Reduce the size of JPG, PNG and WebP images directly in your browser with adjustable quality. Great for faster-loading websites, lighter email attachments and staying under upload limits — processed 100% locally, with nothing uploaded.",
     metaDescription:
       "Compress JPG, PNG and WebP images in your browser with high, medium or low quality presets and download a smaller JPG. Free, with nothing uploaded.",
+    keywords: [
+      "free image compression tool",
+      "image compressor for web",
+      "compress image now",
+      "crop and compress image",
+      "reduce image size online free",
+    ],
     accept: "image/*",
     inputFormats: ["JPG", "PNG", "WEBP"],
     outputFormats: ["JPG"],
@@ -312,6 +357,13 @@ export const TOOLS: Tool[] = [
       "Crop images to a 1:1 square, 16:9 landscape, 4:3 standard or a custom inset, with a live preview overlay. A fast, private, canvas-based cropper for profile pictures, thumbnails and social posts — no uploads required.",
     metaDescription:
       "Crop JPG, PNG and WebP images to 1:1, 16:9, 4:3 or a custom shape with a live preview. A free image cropper that runs in your browser — no uploads.",
+    keywords: [
+      "crop and compress image",
+      "crop picture",
+      "crop image 1 1",
+      "free image cropper online",
+      "cut crop",
+    ],
     accept: "image/*",
     inputFormats: ["JPG", "PNG", "WEBP"],
     outputFormats: ["JPG", "PNG", "WEBP"],

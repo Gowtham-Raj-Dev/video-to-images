@@ -10,6 +10,7 @@ export const metadata: Metadata = pageMetadata({
   title: `${tool.name} — Extract Frames from Video Free`,
   description: tool.metaDescription,
   path: `/${tool.slug}`,
+  keywords: tool.keywords,
 });
 
 export default function Page() {

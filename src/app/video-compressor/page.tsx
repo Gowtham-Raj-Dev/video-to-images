@@ -7,9 +7,10 @@ import { VideoCompressorWorkspace } from "@/components/VideoCompressorWorkspace"
 const tool = getTool("video-compressor")!;
 
 export const metadata: Metadata = pageMetadata({
-  title: `${tool.name} — Compress Video Online Free`,
+  title: `${tool.name} — Online Video Compressor & Size Reducer Free`,
   description: tool.metaDescription,
   path: `/${tool.slug}`,
+  keywords: tool.keywords,
 });
 
 export default function Page() {
