@@ -80,7 +80,6 @@ export const metadata: Metadata = {
     "code love",
     "codelove video to images",
   ],
-  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     url: SITE.url,
