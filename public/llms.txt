@@ -13,5 +13,6 @@
 
 ## Companion CodeLove Video Tool
 - [Video Cut (Shorts Cutter)](https://videocut.codelove.in): Split and cut videos into equal parts or vertical 9:16 Shorts.
+- [Free AI Video Maker](https://videomaker.codelove.in): Turn a script into a talking cartoon or text video.
 - [Video to GIF](https://videotogif.codelove.in): Convert and optimize animated GIFs in-browser.
 
