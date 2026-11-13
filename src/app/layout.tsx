@@ -137,6 +137,8 @@ export default function RootLayout({
             />
           </>
         ) : null}
+        {/* CodeLove Analytics (admin.codelove.in) */}
+        <script defer src="https://admin.codelove.in/t.js" />
       </head>
       <body className="min-h-screen flex flex-col font-sans antialiased">
         <JsonLd data={siteJsonLd()} />
