@@ -146,16 +146,7 @@ export function toolJsonLd(tool: Tool) {
         creator: { "@id": PERSON_ID },
         publisher: { "@id": ORG_ID },
       },
-      {
-        "@type": "HowTo",
-        name: `How to use ${tool.name}`,
-        step: tool.steps.map((s, i) => ({
-          "@type": "HowToStep",
-          position: i + 1,
-          name: s.title,
-          text: s.desc,
-        })),
-      },
+      // No HowTo node: Google removed HowTo rich results in 2023. The steps stay visible on the page.
       faqNode(tool.faqs),
       breadcrumbNode([
         { name: "Home", path: "/" },
