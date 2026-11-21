@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
+  title: { absolute: "Video to Frames Converter & Free Video Compressor" },
+  description:
+    "Extract frames from video with a free video frame extractor, or use the video compressor online free to reduce video size and compress MP4 for WhatsApp.",
   alternates: { canonical: "/" },
 };
 import {
@@ -24,6 +27,8 @@ import { JsonLd } from "@/components/JsonLd";
 import { faqJsonLd } from "@/lib/seo";
 
 const HOME_FAQS = [
+  { q: "How do I extract frames from a video?", a: "Open the Video to Frame tool, drop in your video and pick how many frames you want. The video frame extractor saves every frame as a JPG or PNG, all inside your browser, so nothing is uploaded." },
+  { q: "How do I compress a video for WhatsApp?", a: "Use the Video Compressor, choose a smaller size or quality and download the result. It can compress MP4 files to fit the WhatsApp limit without uploading them anywhere." },
   { q: "Is Frame Studio really free?", a: "Yes. Every tool in the suite is completely free with no signup, no trials and no hidden limits. Just open a tool and use it." },
   { q: "Are my files uploaded to a server?", a: "No. All processing happens locally in your browser using the HTML5 canvas and WebAssembly. Your files never leave your device." },
   { q: "What is the maximum file size?", a: "Because everything runs on your machine, limits depend on your device's memory. Most computers handle large videos and images comfortably." },
@@ -52,7 +57,7 @@ export default function Home() {
               <Sparkles className="h-3.5 w-3.5" /> The complete media suite
             </span>
             <h1 className="mt-6 font-display text-4xl font-bold leading-[1.05] tracking-tight text-balance sm:text-6xl lg:text-[4rem]">
-              Process video & images <span className="gradient-text">privately</span>, right in your browser.
+              Video to frames converter and video compressor, <span className="gradient-text">privately</span> in your browser.
             </h1>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted text-pretty">
               A professional suite of browser-based tools to extract frames, compress, crop and resize your media. No servers, no waiting, no watermarks.
@@ -100,6 +105,31 @@ export default function Home() {
         <div className="mx-auto mt-14 grid max-w-6xl gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {TOOLS.map((tool) => (
             <ToolCard key={tool.slug} tool={tool} />
+          ))}
+        </div>
+      </section>
+
+      {/* POPULAR TASKS */}
+      <section className="container-px w-full pb-20 sm:pb-24">
+        <SectionHeading
+          eyebrow="Popular tasks"
+          title="Video frame extractor, compressor and resizer"
+          description="The most-used tools, explained in a few words each."
+        />
+        <div className="mx-auto mt-14 grid max-w-5xl gap-5 md:grid-cols-2">
+          {[
+            { h: "Video to frames: extract frames from video", href: "/video-to-frame", link: "Try the video to frame converter", d: "Turn any clip into a set of still images. This video frame extractor lets you grab every frame or one per second and download them as JPG or PNG." },
+            { h: "Video compressor online free", href: "/video-compressor", link: "Open the free video compressor", d: "Shrink big files without a signup. Compress MP4, MOV and WebM videos and keep the quality that matters." },
+            { h: "Reduce video size online", href: "/video-resize", link: "Reduce video size with Video Resize", d: "Change the resolution of a video to cut its file size. Pick a preset or enter your own width and height." },
+            { h: "Compress video for WhatsApp", href: "/video-compressor", link: "Compress a video for WhatsApp", d: "Get a clip under the WhatsApp size limit in a few clicks. The file is processed on your device and never uploaded." },
+          ].map((c) => (
+            <div key={c.h} className="card p-6">
+              <h3 className="font-display text-lg font-bold">{c.h}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted">{c.d}</p>
+              <Link href={c.href} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:underline">
+                {c.link} <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
           ))}
         </div>
       </section>
