@@ -63,6 +63,7 @@ export const NETWORK_LINKS: readonly { label: string; href: string; title?: stri
   { label: "Free AI Video Maker", href: "https://videomaker.codelove.in", title: "Free AI video maker: script to talking cartoon or text video" },
   { label: "Free YouTube Automation", href: "https://utubeflow.codelove.in", title: "Bulk upload & schedule YouTube videos for free" },
   { label: "Free Java Games", href: "https://javaplay.codelove.in", title: "Play old Java J2ME phone games free in your browser or on Android" },
+  { label: "Webly", href: "https://webly.codelove.in", title: "Website analytics, deep SEO audit & automated problem fixes" },
 ];
 
 /** Guides on the main CodeLove site that cover what this site's tools do. */
