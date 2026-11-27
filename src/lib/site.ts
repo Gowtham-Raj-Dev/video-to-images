@@ -63,6 +63,9 @@ export const NETWORK_LINKS: readonly { label: string; href: string; title?: stri
   { label: "Free AI Video Maker", href: "https://videomaker.codelove.in", title: "Free AI video maker: script to talking cartoon or text video" },
   { label: "Free YouTube Automation", href: "https://utubeflow.codelove.in", title: "Bulk upload & schedule YouTube videos for free" },
   { label: "Free Java Games", href: "https://javaplay.codelove.in", title: "Play old Java J2ME phone games free in your browser or on Android" },
+  { label: "VOLTARC Arcade", href: "https://voltarc.codelove.in", title: "Play 3,000+ instant HTML5 & 3D browser games" },
+  { label: "Satisfying Video Maker", href: "https://satisfying-video-maker.codelove.in", title: "Browser physics simulation & ASMR video studio" },
+  { label: "ILoveConvert", href: "https://iloveconvert.codelove.in", title: "Free online file, image & developer converters" },
   { label: "Webly", href: "https://webly.codelove.in", title: "Website analytics, deep SEO audit & automated problem fixes" },
 ];
 
